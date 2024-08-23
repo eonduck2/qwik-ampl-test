@@ -22,7 +22,7 @@ export default component$(() => {
     console.log("클라이언트에서 실행되는 코드");
     try {
       const response = await fetch(
-        "https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails&chart=mostPopular&maxResults=10&regionCode=kr&key=AIzaSyAdAHdRseIVBU9_40L103fmzt4NPRF4GzU"
+        "https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails&chart=mostPopular&maxResults=10&regionCode=kr"
       );
       const data = await response.json();
       videoStore.videos = data.items;
@@ -45,9 +45,9 @@ export default component$(() => {
               height="315"
               src={`https://www.youtube.com/embed/${video.id}`}
               title={video.snippet.title}
-              frameBorder="0"
+              frameBorder="15px"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              style={{ borderRadius: "15px" }}
+              allowFullscreen
             ></iframe>
           </li>
         ))}
