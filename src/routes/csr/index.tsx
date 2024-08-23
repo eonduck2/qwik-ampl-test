@@ -2,6 +2,14 @@ import { component$, useVisibleTask$, useStore } from "@builder.io/qwik";
 
 interface Video {
   id: string;
+  snippet: {
+    title: string;
+    thumbnails: {
+      default: {
+        url: string;
+      };
+    };
+  };
   contentDetails: {
     duration: string;
   };
@@ -26,15 +34,21 @@ export default component$(() => {
 
   return (
     <>
+      <h1>인기 YouTube 동영상</h1>
       <ul>
         {videoStore.videos.map((video) => (
           <li key={video.id}>
             <h3>{video.snippet.title}</h3>
             <p>길이: {video.contentDetails.duration}</p>
-            <img
-              src={video.snippet.thumbnails.default.url}
-              alt={video.snippet.title}
-            />
+            <iframe
+              width="560"
+              height="315"
+              src={`https://www.youtube.com/embed/${video.id}`}
+              title={video.snippet.title}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              style={{ borderRadius: "15px" }}
+            ></iframe>
           </li>
         ))}
       </ul>
