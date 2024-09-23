@@ -22,8 +22,8 @@ export default component$(() => {
     console.log("클라이언트에서 실행되는 코드");
     try {
       const response = await fetch(
-        // "https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails&chart=mostPopular&maxResults=10&regionCode=kr&key=AIzaSyAdAHdRseIVBU9_40L103fmzt4NPRF4GzU"
-        "https://www.googleapis.com/youtube/v3/channels?part=snippet,&type=channel&q=Google for Developers&maxResults=5&&key=AIzaSyAdAHdRseIVBU9_40L103fmzt4NPRF4GzU"
+        // "https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails&chart=mostPopular&maxResults=10&regionCode=kr"
+        "https://www.googleapis.com/youtube/v3/channels?part=snippet,&type=channel&q=Google for Developers&maxResults=5"
       );
       const data = await response.json();
       //   videoStore.videos = data.items;
